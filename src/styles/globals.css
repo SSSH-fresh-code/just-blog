@@ -1,0 +1,21 @@
+html {
+  width: 100vw;
+  padding: 0em 1em;
+  box-sizing: border-box;
+}
+
+main {
+  max-width: 1280px
+}
+
+p>small {
+  color: gray
+}
+
+nav>a {
+  margin-right: 2em;
+}
+
+img {
+  position: relative !important;
+}
