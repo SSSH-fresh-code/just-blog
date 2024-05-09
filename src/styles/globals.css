@@ -8,7 +8,6 @@ a,
 a:visited,
 a:link {
   color: black;
-  text-decoration: none;
 }
 
 body {
@@ -17,10 +16,6 @@ body {
 
 section {
   cursor: pointer;
-}
-
-p>small {
-  color: gray;
 }
 
 nav>a {
@@ -35,10 +30,10 @@ h1 {
   font-size: 32px;
 }
 
-main>h1 {
-  font-size: 28px;
+main h1 {
+  font-size: 36px;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 24px;
 }

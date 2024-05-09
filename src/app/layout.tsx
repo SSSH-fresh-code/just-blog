@@ -26,10 +26,10 @@ export default function RootLayout({
         <header>
           <h1><Link href="/">백엔드 개발자가 만든 개발 블로그</Link></h1>
           <nav>
-            <Link href={"/p"}><strong>주제</strong></Link>
-            <Link href={"/p"}><strong>시리즈</strong></Link>
+            <Link href={"/t"}><strong>주제</strong></Link>
+            <Link href={"/s"}><strong>시리즈</strong></Link>
             <Link href={"/p"}><strong>글</strong></Link>
-            <Link href={"/p"}><strong>여긴 뭐임?</strong></Link>
+            <Link href={"/i"}><strong>여긴 뭐임?</strong></Link>
           </nav>
           <hr />
         </header>

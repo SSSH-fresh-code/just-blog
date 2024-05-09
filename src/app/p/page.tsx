@@ -1,27 +1,44 @@
-"use client";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { Page, PostListItem } from "@sssh-fresh-code/types-sssh";
+import { Posts } from "../../components/Posts/Posts";
 
-export default function PostPage() {
-  const router = useRouter();
+async function getPosts(params: { [key: string]: string | string[] | undefined }) {
+  const page = params["page"] ? `page=${params["page"]}` : 'page=1';
+  const topic = params["topic"] ? `where__topicName=${params["topic"]}` : '';
+
+  const querys = [page, topic].filter(q => q !== '');
+
+  const req = await fetch(`http://localhost:3000/posts?take=1&${querys.join('&')}`, {
+    method: "GET",
+  });
+
+  if (!req.ok) throw new Error("서버에서 에러가 발생했습니다.");
+
+  return await req.json();
+}
+
+export default async function PostPage({
+  searchParams,
+  title = "▶ 글 목록"
+}: {
+  searchParams: {
+    [key: string]: string | string[] | undefined
+  },
+  title?: string
+}) {
+  const { data, info } = await getPosts(searchParams) as Page<PostListItem>;
+
+  const links = [];
+
+  if (searchParams["topic"] && typeof searchParams["topic"] === "string") {
+    links.push({ key: "topic", value: searchParams["topic"] })
+    title = `▶ ${searchParams["topic"]} 주제의 글 목록`
+  };
+
   return (
     <main>
-      <h3>▶ 글 목록</h3>
-      <section>
-        <Link href="/p/1">
-          <h1>
-            <ins>
-              <small>1</small>&nbsp;
-              NestJS 토큰 기반 인증 구현하기
-            </ins>
-          </h1>
-          <p>
-            <small>
-              모든 국민은 법률이 정하는 바에 의하여 납세의 의무를 진다. 모든 국민은 그 보호하는 자녀에게 적어도 초등교육과 법률이 정하는 교육을 받게 할 의무를 진다. 군인 또는 군무원이 아닌 국민은 대한민국의 영역안에서는 중대한 군사상 기밀·초병·초소·유독음식물공급·포로·군용물에 관한 죄중 법률이 정한 경우와 비상계엄이 선포된 경우를 제외하고는 군사법원의 재판을 받지 아니한다.
-            </small>
-          </p>
-        </Link>
-      </section>
+      <h3>{title}</h3>
+      <Posts posts={data} info={info} links={links} />
     </main>
   );
 }
+

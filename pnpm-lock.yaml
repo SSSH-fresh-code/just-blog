@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@sssh-fresh-code/types-sssh':
+        specifier: ^0.1.15
+        version: 0.1.15
       '@t3-oss/env-nextjs':
         specifier: ^0.10.1
         version: 0.10.1(typescript@5.4.5)(zod@3.23.4)
@@ -206,6 +209,9 @@ packages:
 
   '@rushstack/eslint-patch@1.10.2':
     resolution: {integrity: sha512-hw437iINopmQuxWPSUEvqE56NCPsiU8N4AYtfHmJFckclktzK9YQJieD3XkDCDH4OjL+C7zgPUh73R/nrcHrqw==}
+
+  '@sssh-fresh-code/types-sssh@0.1.15':
+    resolution: {integrity: sha512-mLzlkSLtw+wpZcAYEM8+9jTew4eucq39nlGOfZKESqYD3ZkndGoinwaXJ4qmaqeSWkhpP9mZQ7z564qwrWYviQ==, tarball: https://npm.pkg.github.com/download/@SSSH-fresh-code/types-sssh/0.1.15/be9d20cf9328b4cd800b6f4506aefb23a4e169ad}
 
   '@swc/counter@0.1.3':
     resolution: {integrity: sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ==}
@@ -1798,6 +1804,8 @@ snapshots:
     optional: true
 
   '@rushstack/eslint-patch@1.10.2': {}
+
+  '@sssh-fresh-code/types-sssh@0.1.15': {}
 
   '@swc/counter@0.1.3': {}
 

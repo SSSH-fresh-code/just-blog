@@ -1,17 +1,15 @@
 import { PageMoveBtn } from "./PageMoveBtn";
-import { PageMoveForm } from "./PageMoveForm";
+import { PageInfo } from "@sssh-fresh-code/types-sssh";
 
 export interface PageInfoProps {
-  current: number;
-  lastPage: number;
-
+  info: PageInfo;
+  links?: { key: string, value: string }[]
 }
 
-export default function Pagination({ current, lastPage }: PageInfoProps) {
+export default function Pagination({ info, links = [] }: PageInfoProps) {
   return (
     <div className="flex flex-col gap-3">
-      <PageMoveBtn current={current} lastPage={lastPage} />
-      <PageMoveForm current={current} lastPage={lastPage} />
+      <PageMoveBtn info={info} links={links} />
     </div>
   )
 }
