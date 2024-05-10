@@ -3,7 +3,7 @@ import { PostItem } from "@sssh-fresh-code/types-sssh";
 import { marked } from "marked";
 
 async function getPost(title: string) {
-  const req = await fetch(`http://localhost:3000/posts/${title}`, {
+  const req = await fetch(`${process.env.API_URL}/posts/${title}`, {
     method: "GET",
   });
 

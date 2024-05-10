@@ -3,7 +3,7 @@ import { ErrorPage } from "../../../components/Common/ErrorPage";
 import Link from "next/link";
 
 async function series(id: string) {
-  const req = await fetch(`http://localhost:3000/series/${id}`, {
+  const req = await fetch(`${process.env.API_URL}/series/${id}`, {
     method: "GET",
   });
 

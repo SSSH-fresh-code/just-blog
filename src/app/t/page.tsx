@@ -5,7 +5,7 @@ import Pagination from "~/components/Paging/Pagination";
 async function getTopics(params: { [key: string]: string | string[] | undefined }) {
   const page = params["page"] || "1";
 
-  const req = await fetch(`http://localhost:3000/topics?page=${page}`, {
+  const req = await fetch(`${process.env.API_URL}/topics?page=${page}`, {
     method: "GET",
   });
 

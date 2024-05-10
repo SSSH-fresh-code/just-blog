@@ -8,7 +8,7 @@ async function getSeriesList(params: { [key: string]: string | string[] | undefi
 
   const querys = [page, topic].filter(q => q !== '');
 
-  const req = await fetch(`http://localhost:3000/series?${querys.join('&')}`, {
+  const req = await fetch(`${process.env.API_URL}/series?${querys.join('&')}`, {
     method: "GET",
   });
 

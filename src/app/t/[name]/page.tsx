@@ -1,10 +1,9 @@
 import { TopicItem } from "@sssh-fresh-code/types-sssh";
-import TopicBy from "~/components/Topics/TopicBy";
 import { ErrorPage } from "../../../components/Common/ErrorPage";
 import Link from "next/link";
 
 async function getTopics(name: string) {
-  const req = await fetch(`http://localhost:3000/topics/${name}`, {
+  const req = await fetch(`${process.env.API_URL}/topics/${name}`, {
     method: "GET",
   });
 

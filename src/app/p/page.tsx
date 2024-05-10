@@ -8,7 +8,7 @@ async function getPosts(params: { [key: string]: string | string[] | undefined }
 
   const querys = [page, topic, series].filter(q => q !== '');
 
-  const req = await fetch(`http://localhost:3000/posts?${querys.join('&')}`, {
+  const req = await fetch(`${process.env.API_URL}/posts?${querys.join('&')}`, {
     method: "GET",
   });
 
