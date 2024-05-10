@@ -4,10 +4,11 @@ import { Posts } from "../../components/Posts/Posts";
 async function getPosts(params: { [key: string]: string | string[] | undefined }) {
   const page = params["page"] ? `page=${params["page"]}` : 'page=1';
   const topic = params["topic"] ? `where__topicName=${params["topic"]}` : '';
+  const series = params["series"] ? `where__seriesId=${params["series"]}` : '';
 
-  const querys = [page, topic].filter(q => q !== '');
+  const querys = [page, topic, series].filter(q => q !== '');
 
-  const req = await fetch(`http://localhost:3000/posts?take=1&${querys.join('&')}`, {
+  const req = await fetch(`http://localhost:3000/posts?${querys.join('&')}`, {
     method: "GET",
   });
 
@@ -29,7 +30,10 @@ export default async function PostPage({
 
   const links = [];
 
-  if (searchParams["topic"] && typeof searchParams["topic"] === "string") {
+  if (searchParams["series"] && typeof searchParams["series"] === "string") {
+    links.push({ key: "series", value: searchParams["series"] })
+    title = `▶ 해당 시리즈의 글 목록`
+  } else if (searchParams["topic"] && typeof searchParams["topic"] === "string") {
     links.push({ key: "topic", value: searchParams["topic"] })
     title = `▶ ${searchParams["topic"]} 주제의 글 목록`
   };

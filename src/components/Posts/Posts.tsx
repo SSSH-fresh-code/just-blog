@@ -14,7 +14,7 @@ export function Posts({ posts, info, links }: PostsProps) {
         <section key={p.id} style={{ display: "flex", margin: "1rem 0" }}>
           <small style={{ paddingTop: "0.5rem" }}>{p.id}</small>&nbsp;&nbsp;&nbsp;
           <div style={{ color: "darkgray" }}>
-            <Link href={`/p/${p.title}`}>
+            <Link href={`/p/${encodeURIComponent(p.title)}`}>
               <h2 style={{ margin: "0" }}>
                 {p.title.replaceAll("_", " ")}
               </h2>
